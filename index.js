@@ -5,6 +5,7 @@ import promiseTool from './lib/promiseTool.js'
 import prototypeExtend from './lib/prototypeExtend.js'
 import queueTool from './lib/queueTool.js'
 import stackTool from './lib/stackTool.js'
+import treeTool from './lib/treeTool.js'
 
 export default {
   arrayTool,
@@ -13,5 +14,6 @@ export default {
   promiseTool,
   prototypeExtend,
   queueTool,
-  stackTool
+  stackTool,
+  treeTool
 }
