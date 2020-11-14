@@ -1,11 +1,16 @@
 {
   "name": "data-footstone",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "基本的数据结构。",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feigebaobei/data-footstone.git"
+  },
+  "keywords": ["data-footstone", "data", "structure", "construction", "Stack", "Queue", "LinkedList", "HashTable", "Tree", "Graph", "Order"],
   "author": "",
   "license": "ISC"
 }
