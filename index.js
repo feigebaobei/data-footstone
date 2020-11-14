@@ -1,4 +1,5 @@
 import arrayTool from './lib/arrayTool.js'
+import graphTool from './lib/graphTool.js'
 import hashTable from './lib/hashTable.js'
 import linkedListTool from './lib/linkedListTool.js'
 import promiseTool from './lib/promiseTool.js'
@@ -9,6 +10,7 @@ import treeTool from './lib/treeTool.js'
 
 export default {
   arrayTool,
+  graphTool,
   hashTable,
   linkedListTool,
   promiseTool,
