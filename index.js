@@ -7,6 +7,7 @@ import prototypeExtend from './lib/prototypeExtend.js'
 import queueTool from './lib/queueTool.js'
 import stackTool from './lib/stackTool.js'
 import treeTool from './lib/treeTool.js'
+import orderTool from './lib/orderTool.js'
 
 export default {
   arrayTool,
@@ -17,5 +18,6 @@ export default {
   prototypeExtend,
   queueTool,
   stackTool,
-  treeTool
+  treeTool,
+  orderTool
 }
