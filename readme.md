@@ -3,14 +3,14 @@
 基本的数据结构。
 
 - Stack  
-Queue  
-LinkedList  
-HashTable  
-Tree  
-Graph  
+- Queue  
+- LinkedList  
+- HashTable  
+- Tree  
+- Graph  
 
-当前版本支持es6规范。即使用export/import方式去抛出、引入。
-暂时不支持commonjs规范。（未来会开发）
+当前版本支持es6规范。即使用export/import方式去抛出、引入。  
+暂时不支持commonjs规范。即nodejs不能使用。（未来会开发）
 
 # install
 
@@ -25,14 +25,14 @@ import dataFootstone from 'data-footstone'
 
 var stack = new dataFootstone.stackTool.Stack()
 stack.push(1, 2, 3, 4)
-console.log(stack.getArray())
+console.log(stack.getArray()) // [1, 2, 3, 4]
 stack.pop()
-console.log(stack.getArray())
+console.log(stack.getArray()) // [1, 2, 3]
 stack.pop()
-console.log(stack.getArray())
+console.log(stack.getArray()) // [1, 2]
 stack.pop()
-console.log(stack.getArray())
-console.log(stack.isEmpty())
+console.log(stack.getArray()) // [1]
+console.log(stack.isEmpty())  // false
 ```
 ```
 import {
@@ -85,19 +85,23 @@ orderTool: {
 
 ## Graph
 
+无向图、未加权、强连接。（图的东西太多了，未来扩展吧。）
+
+```
 var graph = new Graph()
-graph.addVertex(v) // 添加顶点
-graph.addEdge(v, w) // 添加边
-graph.toString() // 打印出邻接表
+graph.addVertex(v)      // 添加顶点
+graph.addEdge(v, w)     // 添加边
+graph.toString()        // 打印出邻接表
 graph.neighborsMatrix() // 返回邻接矩阵
-graph.neighborsTable() // 返回邻接表
-graph.bfs(v, cb) // 以广度优先方式，依次处理执行cb.
-graph.dfs() // 深度优先
-graph.dfsCb(cb) // 以深度优先方式，依次处理执行cb.
+graph.neighborsTable()  // 返回邻接表
+graph.bfs(v, cb)        // 以广度优先方式，依次处理执行cb.
+graph.dfs()             // 深度优先
+graph.dfsCb(cb)         // 以深度优先方式，依次处理执行cb.
+```
 
 ## hashTableBase
 
-基本的散列表。使用loseloseHashCode方式散列。
+基本的散列表。使用loseloseHashCode方式散列。  
 该散列表不能解决散列冲突。出现散列冲突的可能性比较高。
 
 ```
@@ -109,7 +113,7 @@ hashTableBase.get(key) // 获取key对应的value
 
 ## HashTableLinked
 
-该哈希表使用djbHashCode方式散列。
+该哈希表使用djbHashCode方式散列。  
 使用分离链接方法处理哈希冲突。
 
 ```
@@ -184,19 +188,19 @@ circularLinkedList.isEmpty()                               // 是否是空链表
 
 ## orderPromise
 
-orderPromise(pArr)
-pArr promise对象组成的数组。
-依次请求arr里的promise.
-返回各promise的then结果组成的要数组。
+orderPromise(pArr)  
+pArr promise对象组成的数组。  
+依次请求arr里的promise.  
+返回各promise的then结果组成的要数组。  
 返回一个promise对象。其then方法的参数是各promise的then结果组成的要数组。
 
 ## limitPromise
 
-limitPromise(arr, handler, limit)
-arr需要操作的数据 array型
-handler对arr中的数据执行的方法。 function型
-limit最大“并发”量 number型
-限制并发请求的的最大值。
+limitPromise(arr, handler, limit)  
+arr需要操作的数据 array型  
+handler对arr中的数据执行的方法。 function型  
+limit最大“并发”量 number型  
+限制并发请求的的最大值。  
 返回promise对象。其then方法的参数是全部handler的结果。
 
 ## Queue
@@ -251,15 +255,14 @@ stack.size()     // 栈有大小
 二叉树
 ```
 let binarySearchTree = new BinarySearchTree()
-binarySearchTree.insert() // 插入键。返回是否插入成功。
-binarySearchTree.exist() // 是否存在指定的value的key
-binarySearchTree.findMinKey() // 获取最小键
-binarySearchTree.findMaxKey() // 获取最大键
-binarySearchTree.removeKey() // 删除第一个key的value = value的key
-binarySearchTree.remove() // 删除指定value的key
-binarySearchTree.min() // 获取最小的value
-binarySearchTree.max() // 获取最大的value
-binarySearchTree.inOrderTranverse() // 以中序优先方式，依次使用cb处理各键。
-binarySearchTree.preOrderTranverse() // 以先序优先方式，依次使用cb处理各键。
-binarySearchTree.postOrderTranverse() // 以后序优先方式，依次使用cb处理各键。
+binarySearchTree.insert(key, value)          // 插入键。返回是否插入成功。
+binarySearchTree.exist(key)                  // 是否存在指定的value的key
+binarySearchTree.findMinKey(key = this.root) // 获取最小键
+binarySearchTree.findMaxKey(key = this.root) // 获取最大键
+binarySearchTree.remove(value)               // 删除指定value的key
+binarySearchTree.min()                       // 获取最小的value
+binarySearchTree.max()                       // 获取最大的value
+binarySearchTree.inOrderTranverse(cb)        // 以中序优先方式，依次使用cb处理各键。
+binarySearchTree.preOrderTranverse(cb)       // 以先序优先方式，依次使用cb处理各键。
+binarySearchTree.postOrderTranverse(cb)      // 以后序优先方式，依次使用cb处理各键。
 ```
