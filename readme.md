@@ -83,22 +83,6 @@ orderTool: {
 }
 ```
 
-## Graph
-
-无向图、未加权、强连接。（图的东西太多了，未来扩展吧。）
-
-```
-var graph = new Graph()
-graph.addVertex(v)      // 添加顶点
-graph.addEdge(v, w)     // 添加边
-graph.toString()        // 打印出邻接表
-graph.neighborsMatrix() // 返回邻接矩阵
-graph.neighborsTable()  // 返回邻接表
-graph.bfs(v, cb)        // 以广度优先方式，依次处理执行cb.
-graph.dfs()             // 深度优先
-graph.dfsCb(cb)         // 以深度优先方式，依次处理执行cb.
-```
-
 ## hashTableBase
 
 基本的散列表。使用loseloseHashCode方式散列。  
@@ -107,8 +91,8 @@ graph.dfsCb(cb)         // 以深度优先方式，依次处理执行cb.
 ```
 var hashTableBase = new HashTableBase()
 hashTableBase.put(key, value) // 添加key-value
-hashTableBase.remove(key) // 删除key
-hashTableBase.get(key) // 获取key对应的value
+hashTableBase.remove(key)     // 删除key
+hashTableBase.get(key)        // 获取key对应的value
 ```
 
 ## HashTableLinked
@@ -119,8 +103,9 @@ hashTableBase.get(key) // 获取key对应的value
 ```
 var hashTableLinked = new HashTableLinked()
 hashTableLinked.put(key, value) // 添加key-value
-hashTableLinked.remove(key) // 删除key
-hashTableLinked.get(key) // 获取key对应的value
+hashTableLinked.remove(key)     // 删除key
+hashTableLinked.get(key)        // 获取key对应的value
+hashTableLinear.clear()         // 清空hash表
 ```
 
 ## HashTableLinear
@@ -131,14 +116,15 @@ hashTableLinked.get(key) // 获取key对应的value
 ```
 var hashTableLinear = new HashTableLinear()
 hashTableLinear.put(key, value) // 添加key-value
-hashTableLinear.remove(key) // 删除key
-hashTableLinear.get(key) // 获取key对应的value
+hashTableLinear.remove(key)     // 删除key
+hashTableLinear.get(key)        // 获取key对应的value
+hashTableLinear.clear()         // 清空hash表
 ```
 
 ## LinkedList
 单向链表
 ```
-let linkedList = new LinkedList()
+let linkedList = new LinkedList(arr)           // 以arr里的元素创建链表
 linkedList.append(element)                     // 在末尾添加元素
 linkedList.insert(position, element)           // 在position插入元素，position后面的元素依次向后移动。
 linkedList.removeAt(position)                  // 删除指定位置的元素。该位置后面的元素向前移动。
@@ -157,15 +143,20 @@ linkedList.reverseSelf()                       // 反转。改变原链表的顺
 ```
 let doublyLinkedList = new DoublyLinkedList()
 doublyLinkedList.append(element)                         // 在末尾添加元素
+doublyLinkedList.get(position)                           // 根据位置得到元素
+doublyLinkedList.existElement(element)                   // 是否存在指定element
 doublyLinkedList.insert(position, element)               // 在position插入元素，position后面的元素依次向后移动。
-doublyLinkedList.removeAt(position)                      // 删除指定位置的节点，若删除成功则返回节点的element。否则返回false
+doublyLinkedList.removeAt(position)                      // 从head边开始查询并删除指定位置的节点。返回操作后的链表长度。position >= 0
+doublyLinkedList.removeAtRight(position)                 // 从tail开始查询并删除指定位置的节点。返回链表长度。position < 0
 doublyLinkedList.removeElement(element, all = false)     // 删除指定元素。当all为false，则删除第一个指定的元素，否则删除所有指定的元素。
 doublyLinkedList.join(separate = '')                     // 把链表中的元素以连接字符串连接起来并返回。
 doublyLinkedList.slice(start = 0, end = this.length - 1) // 切片后的链条。不改变原链表，返回新链表。
 doublyLinkedList.getEleByIndex(position)                 // 获取指定位置的元素
 doublyLinkedList.getHead(index)                          // 获取头节点
 doublyLinkedList.getTail()                               // 获取尾节点
+doublyLinkedList.moveToHeadByPosition(position)          // 把指定位置的节点移动到头部
 doublyLinkedList.isEmpty()                               // 是否是空链表
+doublyLinkedList.clear()                                 // 清空链表
 ```
 
 ## CircularLinkedList
@@ -266,3 +257,30 @@ binarySearchTree.inOrderTranverse(cb)        // 以中序优先方式，依次�
 binarySearchTree.preOrderTranverse(cb)       // 以先序优先方式，依次使用cb处理各键。
 binarySearchTree.postOrderTranverse(cb)      // 以后序优先方式，依次使用cb处理各键。
 ```
+
+## Graph
+
+无向图、未加权、强连接。（图的东西太多了，未来扩展吧。）
+
+```
+var graph = new Graph()
+graph.addVertex(v)      // 添加顶点
+graph.addEdge(v, w)     // 添加边
+graph.toString()        // 打印出邻接表
+graph.neighborsMatrix() // 返回邻接矩阵
+graph.neighborsTable()  // 返回邻接表
+graph.bfs(v, cb)        // 以广度优先方式，依次处理执行cb.
+graph.dfs()             // 深度优先
+graph.dfsCb(cb)         // 以深度优先方式，依次处理执行cb.
+```
+
+# 未来可能添加的
+
+- Memo 备忘录
+- lru (least recently used)
+- deepClone
+- deepCloneByChannel
+- debounce
+- throttle
+- getType
+- plainArr
