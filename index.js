@@ -8,6 +8,7 @@ import queueTool from './lib/queueTool.js'
 import stackTool from './lib/stackTool.js'
 import treeTool from './lib/treeTool.js'
 import orderTool from './lib/orderTool.js'
+import baseTool from './lib/baseTool.js'
 
 export default {
   arrayTool,
@@ -19,5 +20,8 @@ export default {
   queueTool,
   stackTool,
   treeTool,
-  orderTool
+  orderTool,
+  baseTool: {
+    Lru: baseTool.Lru
+  }
 }

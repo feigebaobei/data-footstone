@@ -43,6 +43,7 @@ import {
   queueTool,
   stackTool,
   treeTool,
+  baseTool
 } from 'data-footstone'
 
 // 各工具对象包括的内容：
@@ -80,6 +81,9 @@ orderTool: {
   quickSort,
   quickSortSelf,
   binarySearch
+}
+baseTool: {
+  Lru
 }
 ```
 
@@ -143,38 +147,24 @@ linkedList.reverseSelf()                       // 反转。改变原链表的顺
 ```
 let doublyLinkedList = new DoublyLinkedList()
 doublyLinkedList.append(element)                         // 在末尾添加元素
-doublyLinkedList.get(position)                           // 根据位置得到元素
+doublyLinkedList.getElementByPostion(position)               // 根据位置得到元素
+doublyLinkedList.getPositionByElement(position)               // 根据元素得到第一个符合元素的位置
 doublyLinkedList.existElement(element)                   // 是否存在指定element
-doublyLinkedList.insert(position, element)               // 在position插入元素，position后面的元素依次向后移动。
+doublyLinkedList.insert(position, element)               // 在position插入元素。返回boolean，表示插入成功、失败。
 doublyLinkedList.removeAt(position)                      // 从head边开始查询并删除指定位置的节点。返回操作后的链表长度。position >= 0
 doublyLinkedList.removeAtRight(position)                 // 从tail开始查询并删除指定位置的节点。返回链表长度。position < 0
+doublyLinkedList.removeTail(position)                 // 删除最后一个元素不返回东西
+doublyLinkedList.removeHead(position)                 // 删除第一个元素不返回东西
 doublyLinkedList.removeElement(element, all = false)     // 删除指定元素。当all为false，则删除第一个指定的元素，否则删除所有指定的元素。
 doublyLinkedList.join(separate = '')                     // 把链表中的元素以连接字符串连接起来并返回。
 doublyLinkedList.slice(start = 0, end = this.length - 1) // 切片后的链条。不改变原链表，返回新链表。
-doublyLinkedList.getEleByIndex(position)                 // 获取指定位置的元素
-doublyLinkedList.getHead(index)                          // 获取头节点
+doublyLinkedList.splice(start = 0, end = 0, ...replacement) // 切片后的链条。不改变原链表，返回新链表。
+doublyLinkedList.toArray()                 // 把element转换为数组
+doublyLinkedList.getHead()                          // 获取头节点
 doublyLinkedList.getTail()                               // 获取尾节点
 doublyLinkedList.moveToHeadByPosition(position)          // 把指定位置的节点移动到头部
 doublyLinkedList.isEmpty()                               // 是否是空链表
 doublyLinkedList.clear()                                 // 清空链表
-```
-
-## CircularLinkedList
-
-循环链表
-
-```
-let circularLinkedList = new CircularLinkedList()
-circularLinkedList.append(element)                         // 在末尾添加元素
-circularLinkedList.insert(position, element)               // 在position插入元素，position后面的元素依次向后移动。
-circularLinkedList.removeAt(position)                      // 删除指定位置的节点，若删除成功则返回节点的element。否则返回false
-circularLinkedList.removeElement(element, all = false)     // 删除指定元素。当all为false，则删除第一个指定的元素，否则删除所有指定的元素。
-circularLinkedList.join(separate = '')                     // 把链表中的元素以连接字符串连接起来并返回。
-circularLinkedList.slice(start = 0, end = this.length - 1) // 切片后的链条。不改变原链表，返回新链表。
-circularLinkedList.getEleByIndex(position)                 // 获取指定位置的元素
-circularLinkedList.getHead(index)                          // 获取头节点
-circularLinkedList.getTail()                               // 获取尾节点
-circularLinkedList.isEmpty()                               // 是否是空链表
 ```
 
 ## orderPromise
@@ -274,13 +264,26 @@ graph.dfs()             // 深度优先
 graph.dfsCb(cb)         // 以深度优先方式，依次处理执行cb.
 ```
 
+## Lru
+
+least recently used 最近最少使用
+
+```
+var lru = new Lru(capacity)
+lru.put(key, value) // 添加一个键值对
+lru.get(key)        // 获取一个值
+lru.clear()         // 清空lru
+lru.size()          // 获取当前缓存了多少个数据
+lru.remove(key)     // 删除指定数据
+```
+
 # 未来可能添加的
 
 - Memo 备忘录
-- lru (least recently used)
 - deepClone
 - deepCloneByChannel
 - debounce
 - throttle
 - getType
 - plainArr
+- CircularLinkedList
