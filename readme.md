@@ -146,25 +146,25 @@ linkedList.reverseSelf()                       // 反转。改变原链表的顺
 双向链表
 ```
 let doublyLinkedList = new DoublyLinkedList()
-doublyLinkedList.append(element)                         // 在末尾添加元素
-doublyLinkedList.getElementByPostion(position)               // 根据位置得到元素
-doublyLinkedList.getPositionByElement(position)               // 根据元素得到第一个符合元素的位置
-doublyLinkedList.existElement(element)                   // 是否存在指定element
-doublyLinkedList.insert(position, element)               // 在position插入元素。返回boolean，表示插入成功、失败。
-doublyLinkedList.removeAt(position)                      // 从head边开始查询并删除指定位置的节点。返回操作后的链表长度。position >= 0
-doublyLinkedList.removeAtRight(position)                 // 从tail开始查询并删除指定位置的节点。返回链表长度。position < 0
-doublyLinkedList.removeTail(position)                 // 删除最后一个元素不返回东西
-doublyLinkedList.removeHead(position)                 // 删除第一个元素不返回东西
-doublyLinkedList.removeElement(element, all = false)     // 删除指定元素。当all为false，则删除第一个指定的元素，否则删除所有指定的元素。
-doublyLinkedList.join(separate = '')                     // 把链表中的元素以连接字符串连接起来并返回。
-doublyLinkedList.slice(start = 0, end = this.length - 1) // 切片后的链条。不改变原链表，返回新链表。
+doublyLinkedList.append(element)                            // 在末尾添加元素
+doublyLinkedList.getElementByPostion(position)              // 根据位置得到元素
+doublyLinkedList.getPositionByElement(position)             // 根据元素得到第一个符合元素的位置
+doublyLinkedList.existElement(element)                      // 是否存在指定element
+doublyLinkedList.insert(position, element)                  // 在position插入元素。返回boolean，表示插入成功、失败。
+doublyLinkedList.removeAt(position)                         // 从head边开始查询并删除指定位置的节点。返回操作后的链表长度。position >= 0
+doublyLinkedList.removeAtRight(position)                    // 从tail开始查询并删除指定位置的节点。返回链表长度。position < 0
+doublyLinkedList.removeTail(position)                       // 删除最后一个元素不返回东西
+doublyLinkedList.removeHead(position)                       // 删除第一个元素不返回东西
+doublyLinkedList.removeElement(element, all = false)        // 删除指定元素。当all为false，则删除第一个指定的元素，否则删除所有指定的元素。
+doublyLinkedList.join(separate = '')                        // 把链表中的元素以连接字符串连接起来并返回。
+doublyLinkedList.slice(start = 0, end = this.length - 1)    // 切片后的链条。不改变原链表，返回新链表。
 doublyLinkedList.splice(start = 0, end = 0, ...replacement) // 切片后的链条。不改变原链表，返回新链表。
-doublyLinkedList.toArray()                 // 把element转换为数组
-doublyLinkedList.getHead()                          // 获取头节点
-doublyLinkedList.getTail()                               // 获取尾节点
-doublyLinkedList.moveToHeadByPosition(position)          // 把指定位置的节点移动到头部
-doublyLinkedList.isEmpty()                               // 是否是空链表
-doublyLinkedList.clear()                                 // 清空链表
+doublyLinkedList.toArray()                                  // 把element转换为数组
+doublyLinkedList.getHead()                                  // 获取头节点
+doublyLinkedList.getTail()                                  // 获取尾节点
+doublyLinkedList.moveToHeadByPosition(position)             // 把指定位置的节点移动到头部
+doublyLinkedList.isEmpty()                                  // 是否是空链表
+doublyLinkedList.clear()                                    // 清空链表
 ```
 
 ## orderPromise
