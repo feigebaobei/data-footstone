@@ -9,8 +9,7 @@
 - Tree  
 - Graph  
 
-当前版本支持es6规范。即使用export/import方式去抛出、引入。  
-暂时不支持commonjs规范。即nodejs不能使用。（未来会开发）
+支持commonjs规范、esm规范。
 
 # install
 
@@ -22,6 +21,8 @@ npm i data-footstone
 
 ```
 import dataFootstone from 'data-footstone'
+// or
+// const dataFootstone = require('data-footstone')
 
 var stack = new dataFootstone.stackTool.Stack()
 stack.push(1, 2, 3, 4)
@@ -277,7 +278,7 @@ lru.size()          // 获取当前缓存了多少个数据
 lru.remove(key)     // 删除指定数据
 ```
 
-# 未来可能添加的
+# 未来可能暴露的
 
 - Memo 备忘录
 - deepClone
@@ -287,3 +288,4 @@ lru.remove(key)     // 删除指定数据
 - getType
 - plainArr
 - CircularLinkedList
+- 版本说明
