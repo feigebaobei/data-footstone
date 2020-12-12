@@ -1,17 +1,16 @@
-const arrayTool = require('./lib/arrayTool.js')
-const graphTool = require('./lib/graphTool.js')
-const hashTable = require('./lib/hashTable.js')
-const linkedListTool = require('./lib/linkedListTool.js')
-const promiseTool = require('./lib/promiseTool.js')
-const prototypeExtend = require('./lib/prototypeExtend.js')
-const queueTool = require('./lib/queueTool.js')
-const stackTool = require('./lib/stackTool.js')
-const treeTool = require('./lib/treeTool.js')
-const orderTool = require('./lib/orderTool.js')
-const baseTool = require('./lib/baseTool.js')
+const arrayTool = require('./lib/commonjs/arrayTool.js')
+const graphTool = require('./lib/commonjs/graphTool.js')
+const hashTable = require('./lib/commonjs/hashTable.js')
+const linkedListTool = require('./lib/commonjs/linkedListTool.js')
+const promiseTool = require('./lib/commonjs/promiseTool.js')
+const prototypeExtend = require('./lib/commonjs/prototypeExtend.js')
+const queueTool = require('./lib/commonjs/queueTool.js')
+const stackTool = require('./lib/commonjs/stackTool.js')
+const treeTool = require('./lib/commonjs/treeTool.js')
+const orderTool = require('./lib/commonjs/orderTool.js')
+const baseTool = require('./lib/commonjs/baseTool.js')
 
 module.exports = {
-// export {
   arrayTool,
   graphTool,
   hashTable,
@@ -23,6 +22,12 @@ module.exports = {
   treeTool,
   orderTool,
   baseTool: {
-    Lru: baseTool.Lru
+    Lru: baseTool.Lru,
+    compose: baseTool.compose,
+    getType: baseTool.getType,
+    deepCloneByChannel: baseTool.deepCloneByChannel,
+    plainArr: baseTool.plainArr,
+    debounce: baseTool.debounce,
+    throttle: baseTool.throttle
   }
 }

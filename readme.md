@@ -84,7 +84,9 @@ orderTool: {
   binarySearch
 }
 baseTool: {
-  Lru
+  Lru,
+  deepCloneByChannel,
+  plainArr
 }
 ```
 
@@ -265,7 +267,9 @@ graph.dfs()             // 深度优先
 graph.dfsCb(cb)         // 以深度优先方式，依次处理执行cb.
 ```
 
-## Lru
+## baseTool
+
+### Lru
 
 least recently used 最近最少使用
 
@@ -278,14 +282,69 @@ lru.size()          // 获取当前缓存了多少个数据
 lru.remove(key)     // 删除指定数据
 ```
 
+### compose
+
+链式执行一系列函数，从右到左执行。后一个参数的执行结果是前一个参数的入参。
+
+```
+let res = baseTool.compose(f3, f2, f1, f0)
+```
+
+### deepCloneByChannel
+
+使用消息通道实现深复制
+
+```
+async function fn (a) {
+  console.log('start');
+  let b = await deepClone(a)
+  console.log(b);
+  console.log('end');
+}
+```
+
+### plainArr
+
+把多维数据变为一维数组
+
+```
+plainArr(arr) // [...]
+```
+
+### getType
+
+得到参数的类型。
+返回小写的类型名称。string.
+
+```
+let type = baseTool.getType(params)
+```
+
+### debounce
+
+去抖
+最后一次触发后延迟delay（ms）后执行fn.
+返回一个方法。
+
+```
+let fn = () => {...}
+let f = baseTool.debounce(fn, delay = 250)
+```
+
+### throttle
+
+节流
+刚开始触发时就执行一次，然后每经过delay（ms）后仍触发则执行第二次。
+返回一个方法。
+
+```
+let fn = () => {...}
+let f = baseTool.throttle(fn, threshhold = 250)
+```
+
 # 未来可能暴露的
 
 - Memo 备忘录
 - deepClone
-- deepCloneByChannel
-- debounce
-- throttle
-- getType
-- plainArr
 - CircularLinkedList
 - 版本说明

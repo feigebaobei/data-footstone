@@ -1,14 +1,14 @@
-import arrayTool from './lib/arrayTool.js'
-import graphTool from './lib/graphTool.js'
-import hashTable from './lib/hashTable.js'
-import linkedListTool from './lib/linkedListTool.js'
-import promiseTool from './lib/promiseTool.js'
-import prototypeExtend from './lib/prototypeExtend.js'
-import queueTool from './lib/queueTool.js'
-import stackTool from './lib/stackTool.js'
-import treeTool from './lib/treeTool.js'
-import orderTool from './lib/orderTool.js'
-import baseTool from './lib/baseTool.js'
+import arrayTool from './lib/esm/arrayTool.js'
+import graphTool from './lib/esm/graphTool.js'
+import hashTable from './lib/esm/hashTable.js'
+import linkedListTool from './lib/esm/linkedListTool.js'
+import promiseTool from './lib/esm/promiseTool.js'
+import prototypeExtend from './lib/esm/prototypeExtend.js'
+import queueTool from './lib/esm/queueTool.js'
+import stackTool from './lib/esm/stackTool.js'
+import treeTool from './lib/esm/treeTool.js'
+import orderTool from './lib/esm/orderTool.js'
+import baseTool from './lib/esm/baseTool.js'
 
 export default {
   arrayTool,
@@ -22,6 +22,12 @@ export default {
   treeTool,
   orderTool,
   baseTool: {
-    Lru: baseTool.Lru
+    Lru: baseTool.Lru,
+    compose: baseTool.compose,
+    getType: baseTool.getType,
+    deepCloneByChannel: baseTool.deepCloneByChannel,
+    plainArr: baseTool.plainArr,
+    debounce: baseTool.debounce,
+    throttle: baseTool.throttle
   }
 }
